@@ -5,7 +5,7 @@ export default function AuthGuard({ children, allowedRoles }) {
   const { user, status } = useAuthState();
   const location = useLocation();
 
-  if (status === 'loading' || status === 'idle') {
+  if (status === 'loading') {
     return <div className="loading-spinner">Loading...</div>;
   }
 

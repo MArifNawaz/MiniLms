@@ -1,0 +1,186 @@
+{
+  "users": [
+    { "id": 1, "name": "Admin User", "email": "admin@minilms.com", "role": "admin", "password": "admin123" },
+    { "id": 2, "name": "Dr. Ayesha Khan", "email": "ayesha@minilms.com", "role": "instructor", "password": "instructor123" },
+    { "id": 3, "name": "Ali Raza", "email": "ali@minilms.com", "role": "student", "password": "student123" },
+    { "id": 4, "name": "Fatima Tariq", "email": "fatima@minilms.com", "role": "student", "password": "student123" },
+    { "id": 5, "name": "Usman Ahmed", "email": "usman@minilms.com", "role": "student", "password": "student123" },
+    { "id": 6, "name": "Prof. Imran Ali", "email": "imran@minilms.com", "role": "instructor", "password": "instructor123" },
+    { "id": 7, "name": "Dr. Sana Farooq", "email": "sana@minilms.com", "role": "instructor", "password": "instructor123" },
+    { "id": 8, "name": "Zainab Mahmood", "email": "zainab@minilms.com", "role": "student", "password": "student123" },
+    { "id": 9, "name": "Bilal Qureshi", "email": "bilal@minilms.com", "role": "student", "password": "student123" },
+    { "id": 10, "name": "Hamza Sheikh", "email": "hamza@minilms.com", "role": "student", "password": "student123" }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Introduction to Web Development",
+      "description": "Learn the fundamentals of HTML, CSS, and JavaScript to build modern websites.",
+      "instructorId": 2,
+      "materials": [
+        { "id": 1, "title": "HTML Basics", "type": "document" },
+        { "id": 2, "title": "CSS Fundamentals", "type": "video" },
+        { "id": 3, "title": "JavaScript Essentials", "type": "document" },
+        { "id": 10, "title": "Responsive Design", "type": "video" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "React for Beginners",
+      "description": "Master React.js from scratch — components, hooks, state management and more.",
+      "instructorId": 2,
+      "materials": [
+        { "id": 4, "title": "React Components", "type": "video" },
+        { "id": 5, "title": "Hooks Deep Dive", "type": "document" },
+        { "id": 11, "title": "State Management with Context", "type": "video" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Database Design with SQL",
+      "description": "Understand relational databases, SQL queries, normalization, and data modeling.",
+      "instructorId": 6,
+      "materials": [
+        { "id": 6, "title": "SQL Basics", "type": "document" },
+        { "id": 7, "title": "Normalization", "type": "video" },
+        { "id": 8, "title": "Advanced Queries", "type": "document" },
+        { "id": 9, "title": "Database Indexing", "type": "document" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Data Structures & Algorithms",
+      "description": "A comprehensive guide to understanding core computer science algorithms and data structures.",
+      "instructorId": 6,
+      "materials": [
+        { "id": 12, "title": "Arrays and Linked Lists", "type": "document" },
+        { "id": 13, "title": "Trees and Graphs", "type": "video" },
+        { "id": 14, "title": "Sorting Algorithms", "type": "video" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Machine Learning Foundations",
+      "description": "Learn the basics of Machine Learning, neural networks, and AI fundamentals.",
+      "instructorId": 7,
+      "materials": [
+        { "id": 15, "title": "Introduction to AI", "type": "document" },
+        { "id": 16, "title": "Linear Regression", "type": "video" },
+        { "id": 17, "title": "Neural Networks Basics", "type": "document" }
+      ]
+    }
+  ],
+  "enrollments": [
+    { "studentId": 3, "courseId": 1 },
+    { "studentId": 3, "courseId": 2 },
+    { "studentId": 4, "courseId": 1 },
+    { "studentId": 4, "courseId": 3 },
+    { "studentId": 5, "courseId": 2 },
+    { "studentId": 5, "courseId": 4 },
+    { "studentId": 8, "courseId": 5 },
+    { "studentId": 8, "courseId": 1 },
+    { "studentId": 9, "courseId": 3 },
+    { "studentId": 9, "courseId": 4 },
+    { "studentId": 10, "courseId": 2 },
+    { "studentId": 10, "courseId": 5 }
+  ],
+  "quizzes": [
+    {
+      "id": 1,
+      "courseId": 1,
+      "title": "HTML & CSS Fundamentals Quiz",
+      "questions": [
+        {
+          "question": "What does HTML stand for?",
+          "options": ["Hyper Text Markup Language", "High Tech Modern Language", "Hyper Transfer Markup Language", "Home Tool Markup Language"],
+          "correct": 0
+        },
+        {
+          "question": "Which CSS property is used to change the text color?",
+          "options": ["font-color", "text-color", "color", "foreground-color"],
+          "correct": 2
+        },
+        {
+          "question": "Which HTML tag is used for the largest heading?",
+          "options": ["<heading>", "<h6>", "<h1>", "<head>"],
+          "correct": 2
+        },
+        {
+          "question": "Which tag is used to create a hyperlink?",
+          "options": ["<a>", "<link>", "<href>", "<hyperlink>"],
+          "correct": 0
+        },
+        {
+          "question": "In CSS, how do you select an element with id 'demo'?",
+          "options": [".demo", "#demo", "demo", "*demo"],
+          "correct": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "courseId": 2,
+      "title": "React Basics Quiz",
+      "questions": [
+        {
+          "question": "What hook is used to manage state in a functional component?",
+          "options": ["useEffect", "useState", "useContext", "useReducer"],
+          "correct": 1
+        },
+        {
+          "question": "What is JSX?",
+          "options": ["A database query language", "A CSS framework", "A syntax extension for JavaScript", "A testing library"],
+          "correct": 2
+        },
+        {
+          "question": "What does the useEffect hook do?",
+          "options": ["Manages component state", "Handles side effects", "Creates context", "Optimizes rendering"],
+          "correct": 1
+        },
+        {
+          "question": "How do you pass data to a child component?",
+          "options": ["Using context", "Using props", "Using state", "Using Redux"],
+          "correct": 1
+        },
+        {
+          "question": "What is the virtual DOM?",
+          "options": ["A direct copy of the real DOM", "A lightweight JavaScript representation of the DOM", "A new HTML standard", "A browser feature for rendering fast"],
+          "correct": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "courseId": 3,
+      "title": "SQL Basics Quiz",
+      "questions": [
+        {
+          "question": "What does SQL stand for?",
+          "options": ["Structured Query Language", "Strong Question Language", "Structured Question Language", "Simple Query Language"],
+          "correct": 0
+        },
+        {
+          "question": "Which statement is used to extract data from a database?",
+          "options": ["GET", "OPEN", "EXTRACT", "SELECT"],
+          "correct": 3
+        },
+        {
+          "question": "Which keyword is used to sort the result-set?",
+          "options": ["SORT BY", "ORDER BY", "ORDER", "SORT"],
+          "correct": 1
+        },
+        {
+          "question": "How do you select all columns from a table named 'Persons'?",
+          "options": ["SELECT * FROM Persons", "SELECT Persons", "SELECT *.Persons", "SELECT [all] FROM Persons"],
+          "correct": 0
+        }
+      ]
+    }
+  ],
+  "quizResults": [
+    { "studentId": 3, "quizId": 1, "score": 4, "total": 5 },
+    { "studentId": 4, "quizId": 1, "score": 5, "total": 5 },
+    { "studentId": 3, "quizId": 2, "score": 3, "total": 5 },
+    { "studentId": 8, "quizId": 1, "score": 2, "total": 5 }
+  ]
+}

@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect, useCallback } from 'react';
+import { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import { authService } from '../api/auth';
 
 const AuthStateContext = createContext();
@@ -6,21 +6,24 @@ const AuthDispatchContext = createContext();
 
 const authReducer = (state, action) => {
   switch (action.type) {
-    case 'AUTH_INIT': return { ...state, user: action.payload, status: 'idle' };
+    case 'AUTH_INIT': return { ...state, user: action.payload, status: 'success' };
     case 'AUTH_LOADING': return { ...state, status: 'loading' };
     case 'AUTH_SUCCESS': return { user: action.payload, status: 'success' };
     case 'AUTH_ERROR': return { ...state, status: 'error', error: action.payload };
-    case 'AUTH_LOGOUT': return { user: null, status: 'idle', error: null };
+    case 'AUTH_LOGOUT': return { user: null, status: 'unauthenticated', error: null };
     default: return state;
   }
 };
 
 export const AuthProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, { user: null, status: 'idle', error: null });
+  const [state, dispatch] = useReducer(authReducer, { user: null, status: 'loading', error: null });
 
   useEffect(() => {
     const initAuth = async () => {
-      if (!authService.token) return;
+      if (!authService.token) {
+        dispatch({ type: 'AUTH_LOGOUT' });
+        return;
+      }
       dispatch({ type: 'AUTH_LOADING' });
       try {
         const user = await authService.fetchUser();
@@ -71,4 +74,10 @@ export const useAuthDispatch = () => {
   const context = useContext(AuthDispatchContext);
   if (!context) throw new Error('useAuthDispatch must be used within AuthProvider');
   return context;
+};
+
+export const useAuth = () => {
+  const { user, status, error } = useAuthState();
+  const { authenticate, deauthenticate } = useAuthDispatch();
+  return { user, status, error, login: authenticate, logout: deauthenticate };
 };

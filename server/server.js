@@ -7,6 +7,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Serve static frontend files for deployment
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../dist')));
+
+
 const JWT_SECRET = 'your-secret-key';
 const users = [];
 
@@ -39,4 +44,10 @@ app.get('/api/auth/profile', (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+// Fallback for React Router
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

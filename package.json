@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "start": "node server/server.js",
+    "install:all": "npm install && cd server && npm install"
   },
   "dependencies": {
     "lucide-react": "^0.303.0",

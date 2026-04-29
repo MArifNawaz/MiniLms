@@ -130,7 +130,7 @@ export function AdminDashboard() {
           </div>
         </div>
 
-        <div style={{marginBottom: '1rem', display: 'flex', gap: '1rem'}}>
+        <div className="btn-group">
           <button 
             className={`btn ${activeTab === 'courses' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('courses')}
@@ -285,7 +285,7 @@ export function StudentDashboard() {
           </div>
         </div>
 
-        <div style={{marginBottom: '1rem', display: 'flex', gap: '1rem'}}>
+        <div className="btn-group">
           <button 
             className={`btn ${activeTab === 'courses' ? 'btn-primary' : 'btn-secondary'}`}
             onClick={() => setActiveTab('courses')}
